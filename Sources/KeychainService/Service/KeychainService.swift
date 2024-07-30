@@ -9,13 +9,13 @@ import Foundation
 import Security
 
 /// An object for manage the operation of the Keychain.
-enum KeychainService {
+public enum KeychainService {
     /// Stores the key for identifier a new item in the Keychain.
     private static let key = "sensitive_user_key"
     
     /// Stores a new item in the Keychain
     /// - Parameter token: An instance value of the item.
-    static func store<T: Codable>(for model: T) throws -> OSStatus {
+    public static func store<T: Codable>(for model: T) throws -> OSStatus {
         // Checks if has some item saved.
         // If it has, will be executing a
         // delete action for clean the store.
@@ -49,7 +49,7 @@ enum KeychainService {
     
     /// Unwrapping an item value saved in the keychain.
     /// - Returns: Returns the item's value saved.
-    static func retrive<T: Codable>(_ model: T.Type) throws -> T {
+    public static func retrive<T: Codable>(_ model: T.Type) throws -> T {
         // Creating a query dictionary
         // with some information about
         // how the search will be performed.
@@ -94,7 +94,7 @@ enum KeychainService {
     
     
     /// Deleting the item fromthe Keychain.
-    static func delete() throws -> OSStatus {
+    public static func delete() throws -> OSStatus {
         // Creating a query dictionary
         // with some information about
         // how the search the token on the keychain

@@ -10,7 +10,7 @@ import Foundation
 extension KeychainService {
     
     /// An representation of the errors that may be occur on a operation of the Keychain .
-    enum KeychainError: Error, LocalizedError {
+    public enum KeychainError: Error, LocalizedError {
         
         /// This error is for time when saving operation has failed.
         case saveError
@@ -24,7 +24,7 @@ extension KeychainService {
         /// This error is for time when the unknown error is find
         case unhandledError(status: OSStatus)
         
-        var errorDescription: String? {
+        public var errorDescription: String? {
             switch self {
             case .saveError:
                 NSLocalizedString("Failed to save your token in the Keychain. Please try again", comment: "")
